@@ -68,41 +68,44 @@
   }
 </script>
 	<div class="row">
-		<header>
-			<img src="img/logo.png" class="logotipo" alt="logotipo...">
-			<div class="login" id="statusLogin">
-				<!-- statusLogin.php -->
-				<img src='img/carregando-pacotes.gif'>
-			</div>
+		<header class="row">
+			<div class="col-xs-2"><img src="img/logo.png" class="logotipo" alt="logotipo..."></div>
+			
 			<div id="tamanhoTela"></div>
-			<form class="dir">
-				<input type="text" name="busca" class="campo-busca" onclick="tempoInfinitoCarrossel()">
-				<button class="lupa">&#128269;</button>
-			</form>
+			<div class="col-xs-10">
+				<form class="dir col-">
+					<input type="text" name="busca" class="campo-busca" onclick="tempoInfinitoCarrossel()">
+					<button class="lupa">&#128269;</button>
+				</form>
+				<div class="login dir col-" id="statusLogin">
+					<!-- statusLogin.php -->
+					<img src='img/carregando-pacotes.gif'>
+				</div>
+			</div>
+				
 		</header>
 		<aside class="carroussel col-md-12 col-lg-12">
 			  <span id="target-item-1"></span>
 			  <span id="target-item-2"></span>
 			  <span id="target-item-3"></span>
 			  
-			  <div class="carousel-item item-1" style="background: url('img/charqueadas1.jpg'); background-position: center;">
-			  
-			    <h2 class="titulo-carousel cor-txt">CharqueadasTEM...</h2>
-			    <p>conteudo do slide....</p>
-			  
+			  <div class="carousel-item item-1" style="background: url('img/charqueadas1.jpg'); background-position: center;">			  
+			    <!--h2 class="titulo-carousel cor-txt">CharqueadasTEM...</h2>
+			    <p>conteudo do slide....</p-->			  
 			    <a class="arrow arrow-prev" href="#target-item-3"><img src="img/carousel-arrow-left.png" class="imgArrow"></a>
 			    <a class="arrow arrow-next" href="#target-item-2"><img src="img/carousel-arrow-right.png" class="imgArrow"></a>
 			  </div>
 			  
 			  <div class="carousel-item item-2 light" style="background: url('img/charqueadas2.jpg'); background-position: center;">
-			    <h2>Item 2</h2>
-			    <p>conteudo do slide....</p>
+			    <!--h2>Item 2</h2>
+			    <p>conteudo do slide....</p-->
 			    <a class="arrow arrow-prev" href="#target-item-1"><img src="img/carousel-arrow-left.png" class="imgArrow"></a>
 			    <a class="arrow arrow-next" href="#target-item-3"><img src="img/carousel-arrow-right.png" class="imgArrow"></a>
 			  </div>
+
 			  <div class="carousel-item item-3" style="background: url('img/ifsulcharqueadas.jpg'); background-repeat: no-repeat; background-position: center;">
-			    <h2>Item 3</h2>
-			    <p>conteudo do slide....</p>
+			    <!--h2>Item 3</h2>
+			    <p>conteudo do slide....</p-->
 			    <a class="arrow arrow-prev" href="#target-item-2"><img src="img/carousel-arrow-left.png" class="imgArrow"></a>
 			    <a class="arrow arrow-next" href="#target-item-1"><img src="img/carousel-arrow-right.png" class="imgArrow"></a>
 			  </div>

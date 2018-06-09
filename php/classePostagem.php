@@ -69,9 +69,9 @@ class Postagem /*extends AnotherClass*/
 						</footer>
 						<div class="row" id="btnLike<?= $this->getId(); ?>">
 							<!-- btnLike.php -->
-							<button class="like" onclick="liked('<?= $this->getId(); ?>');">	<i  class="fa fa-thumbs-o-up">&nbsp;&nbsp;<?= $this->getLikes(); ?></i></button>&nbsp;&nbsp;&nbsp;<button class="deslike" onclick="desliked('<?= $this->getId(); ?>');"> <i class="fa fa-thumbs-o-down">&nbsp;&nbsp;<?= $this->getDeslikes(); ?></i></button>&nbsp;&nbsp;<button onclick="denunciar('<?= $this->getId(); ?>');"><img src="img/denuncia.png" style="max-height: 50px;"></button>
+							<!--button class="like" onclick="liked('<?= $this->getId(); ?>');"-->	<i  class="fa fa-thumbs-o-up like" onclick="liked('<?= $this->getId(); ?>');">&nbsp;&nbsp;<?= $this->getLikes(); ?></i><!--/button-->&nbsp;&nbsp;&nbsp;<!--button class="deslike" onclick="desliked('<?= $this->getId(); ?>');"--> <i class="fa fa-thumbs-o-down deslike" onclick="desliked('<?= $this->getId(); ?>');">&nbsp;&nbsp;<?= $this->getDeslikes(); ?></i><!--/button-->&nbsp;&nbsp;<!--button onclick="denunciar('<?= $this->getId(); ?>');"--><img src="img/denuncia.png" style="max-height: 30px;" onclick="denunciar('<?= $this->getId(); ?>');"><!--/button-->
 							<?php if($this->existeDenunciaUsu($conex)  == 'denunciado'): ?>
-								<button onclick="denunciarOf('<?= $this->getId(); ?>');"><big><i class="fa fa-medkit" style="color: green;"></i></big></button>
+								<!--button onclick="denunciarOf('<?= $this->getId(); ?>');"-->&nbsp;&nbsp;&nbsp;&nbsp;<big><i class="fa fa-medkit" style="color: green;" onclick="denunciarOf('<?= $this->getId(); ?>');"></i></big><!--/button-->
 							<?php endif; ?>
 						</div>	
 						<p id="respLike<?= $this->id; ?>"></p><!-- tem que numerar essa bagaça pois tem um pra cada postagem ??????????? -->
@@ -375,7 +375,7 @@ class Postagem /*extends AnotherClass*/
 				if($cont < 10){
 					if ($this->avaliaIdPost($conex, $post->id)) {
 						$cont++;
-						?> <li class="btn cor-txt" onclick="carregarPost('<?= $post->id; ?>')"><!--a href="#php/postagem.php?id=<?= $post->id; ?>" class="cor-txt"--><?= $post->titulo; ?><!--</a--></li> <?php 
+						?> <li class="btn cor-txt menu-txt" onclick="carregarPost('<?= $post->id; ?>')"><!--a href="#php/postagem.php?id=<?= $post->id; ?>" class="cor-txt"--><?= $post->titulo; ?><!--</a--></li> <?php 
 					}
 				}					
 			}

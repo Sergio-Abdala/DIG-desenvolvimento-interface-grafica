@@ -6,7 +6,8 @@
 	$post->refreshLike($conex);
 ?>
 
-<button class="like" onclick="liked('<?= $post->getId(); ?>');">	<i  class="fa fa-thumbs-o-up">&nbsp;&nbsp;<?= $post->getLikes(); ?></i></button>&nbsp;&nbsp;&nbsp;<button class="deslike" onclick="desliked('<?= $post->getId(); ?>');"> <i class="fa fa-thumbs-o-down">&nbsp;&nbsp;<?= $post->getDeslikes(); ?></i></button>&nbsp;&nbsp;<button onclick="denunciar('<?= $post->getId(); ?>');"><img src="img/denuncia.png" style="max-height: 50px;"></button>
-<?php if($post->existeDenunciaUsu($conex)  == 'denunciado'): ?>
-	<button onclick="denunciarOf('<?= $post->getId(); ?>');"><big><i class="fa fa-medkit" style="color: green;"></i></big></button>
+<!--button class="like" onclick="liked('<?= $post->getId(); ?>');"-->	<i  class="fa fa-thumbs-o-up like" onclick="liked('<?= $post->getId(); ?>');">&nbsp;&nbsp;<?= $post->getLikes(); ?></i><!--/button-->&nbsp;&nbsp;&nbsp;<!--button class="deslike" onclick="desliked('<?= $post->getId(); ?>');"--> <i class="fa fa-thumbs-o-down deslike" onclick="desliked('<?= $post->getId(); ?>');">&nbsp;&nbsp;<?= $post->getDeslikes(); ?></i><!--/button-->&nbsp;&nbsp;<!--button onclick="denunciar('<?= $post->getId(); ?>');"--><img src="img/denuncia.png" style="max-height: 30px;" onclick="denunciar('<?= $post->getId(); ?>');"><!--/button-->
+
+<?php if($post->existeDenunciaUsu($conex)  == 'denunciado'): ?>	
+	&nbsp;&nbsp;&nbsp;&nbsp;<big><i class="fa fa-medkit" style="color: green;" onclick="denunciarOf('<?= $post->getId(); ?>');"></i></big>
 <?php endif; ?>
