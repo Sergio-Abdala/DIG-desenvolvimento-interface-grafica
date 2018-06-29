@@ -44,7 +44,7 @@
 			</nav>
 			<div class="col-xs-12 col-md-8 col-xl-10" >
 				<div style="float: left;" class="row">
-					<div id="formularioUsu" class="col-"></div>
+					<div id="formularioUsu" class="col-xs-8 col-md-8 col-xl-5"></div>
 					<div id="listaPost" style="padding-left: 15px;" class="row"></div><!-- painelPostagemLoad.php -->
 				</div>
 			</div>

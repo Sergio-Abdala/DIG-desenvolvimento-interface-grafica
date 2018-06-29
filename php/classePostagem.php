@@ -37,7 +37,7 @@ class Postagem /*extends AnotherClass*/
 					}
 				}
 				?>
-					<section class="col- col-xs-12 col-md-6">
+					<section class="col- col-xs-12 col-md-6" style="position: relative;">
 						<h2><?= $con->titulo; ?></h2>
 						<?php if(isset($foto[0])): ?>
 							<div class="foto col- col-md-6 row">
@@ -60,22 +60,25 @@ class Postagem /*extends AnotherClass*/
 						 <p class="cor-txt tam-txt" style="display: none;" id="continua<?= $this->id; ?>"><?= substr($con->texto, 580); ?><br />
 						 	<small style="color: green;" onclick="document.getElementById('continua<?= $this->id; ?>').style.display='none';
 						document.getElementById('small<?= $this->id; ?>').style.display='block';" id="small<?= $this->id; ?>"> Ocultar...</small></p>						
-						<footer class="col-">
-							<?php  
-								$usu = new Usuario($con->idusu, '');
-								$usu->load($conex);
-							?>
-							publicado por: <?= $usu->getNome(); ?> <small style="font-size: 12px;">em <?= $con->data; ?></small>
-						</footer>
-						<div class="row" id="btnLike<?= $this->getId(); ?>">
-							<!-- btnLike.php -->
-							<!--button class="like" onclick="liked('<?= $this->getId(); ?>');"-->	<i  class="fa fa-thumbs-o-up like" onclick="liked('<?= $this->getId(); ?>');">&nbsp;&nbsp;<?= $this->getLikes(); ?></i><!--/button-->&nbsp;&nbsp;&nbsp;<!--button class="deslike" onclick="desliked('<?= $this->getId(); ?>');"--> <i class="fa fa-thumbs-o-down deslike" onclick="desliked('<?= $this->getId(); ?>');">&nbsp;&nbsp;<?= $this->getDeslikes(); ?></i><!--/button-->&nbsp;&nbsp;<!--button onclick="denunciar('<?= $this->getId(); ?>');"--><img src="img/denuncia.png" style="max-height: 30px;" onclick="denunciar('<?= $this->getId(); ?>');"><!--/button-->
-							<?php if($this->existeDenunciaUsu($conex)  == 'denunciado'): ?>
-								<!--button onclick="denunciarOf('<?= $this->getId(); ?>');"-->&nbsp;&nbsp;&nbsp;&nbsp;<big><i class="fa fa-medkit" style="color: green;" onclick="denunciarOf('<?= $this->getId(); ?>');"></i></big><!--/button-->
-							<?php endif; ?>
-						</div>	
-						<p id="respLike<?= $this->id; ?>"></p><!-- tem que numerar essa bagaça pois tem um pra cada postagem ??????????? -->
-						<button onclick="carregarPost('<?= $this->id; ?>')" class="btn menu">Ver / Abrir</button>
+						<div style="min-height: 100px;"></div>
+						<div style="bottom: 0; position: absolute; text-align: center;">
+							<footer class="col-">
+								<?php  
+									$usu = new Usuario($con->idusu, '');
+									$usu->load($conex);
+								?>
+								publicado por: <?= $usu->getNome(); ?> <small style="font-size: 12px;">em <?= $con->data; ?></small>
+							</footer>
+							<div class="row" id="btnLike<?= $this->getId(); ?>">
+								<!-- btnLike.php -->
+								<!--button class="like" onclick="liked('<?= $this->getId(); ?>');"-->	<i  class="fa fa-thumbs-o-up like" onclick="liked('<?= $this->getId(); ?>');">&nbsp;&nbsp;<?= $this->getLikes(); ?></i><!--/button-->&nbsp;&nbsp;&nbsp;<!--button class="deslike" onclick="desliked('<?= $this->getId(); ?>');"--> <i class="fa fa-thumbs-o-down deslike" onclick="desliked('<?= $this->getId(); ?>');">&nbsp;&nbsp;<?= $this->getDeslikes(); ?></i><!--/button-->&nbsp;&nbsp;<!--button onclick="denunciar('<?= $this->getId(); ?>');"--><img src="img/denuncia.png" style="max-height: 30px;" onclick="denunciar('<?= $this->getId(); ?>');"><!--/button-->
+								<?php if($this->existeDenunciaUsu($conex)  == 'denunciado'): ?>
+									<!--button onclick="denunciarOf('<?= $this->getId(); ?>');"-->&nbsp;&nbsp;&nbsp;&nbsp;<big><i class="fa fa-medkit" style="color: green;" onclick="denunciarOf('<?= $this->getId(); ?>');"></i></big><!--/button-->
+								<?php endif; ?>
+							</div>	
+							<p id="respLike<?= $this->id; ?>"></p>
+							<button onclick="carregarPost('<?= $this->id; ?>')" class="btn menu">Ver / Abrir</button>
+						</div>
 					</section>
 				<?php
 			}
@@ -129,19 +132,21 @@ class Postagem /*extends AnotherClass*/
 							?>
 							publicado por: <?= $usu->getNome(); ?> <small style="font-size: 12px;">em <?= $con->data; ?></small>
 						</footer>
-						<button class="like" onclick="liked('<?= $this->id; ?>');">	<i  class="fa fa-thumbs-o-up">&nbsp;&nbsp;<?= $this->likes; ?></i></button>&nbsp;&nbsp;&nbsp;<button class="deslike" onclick="desliked('<?= $this->id; ?>');"> <i class="fa fa-thumbs-o-down">&nbsp;&nbsp;<?= $this->deslikes; ?></i></button>&nbsp;&nbsp;<button onclick="denunciar('<?= $this->id; ?>');"><img src="img/denuncia.png" style="max-height: 50px;"></button>
+						<!--button class="like" onclick="liked('<?= $this->id; ?>');"-->	<i  class="fa fa-thumbs-o-up like" onclick="liked('<?= $this->id; ?>');">&nbsp;&nbsp;<?= $this->likes; ?></i><!--/button-->&nbsp;&nbsp;&nbsp;<!--button class="deslike" onclick="desliked('<?= $this->id; ?>');"--> <i class="fa fa-thumbs-o-down deslike" onclick="desliked('<?= $this->id; ?>');">&nbsp;&nbsp;<?= $this->deslikes; ?></i><!--/button-->&nbsp;&nbsp;<!--button onclick="denunciar('<?= $this->id; ?>');"--><img src="img/denuncia.png" style="max-height: 30px;" onclick="denunciar('<?= $this->id; ?>');"><!--/button-->
 						<?php if($this->existeDenunciaUsu($conex)  == 'denunciado'): ?>
-							<button onclick="denunciarOf('<?= $this->id; ?>');"><big><i class="fa fa-medkit" style="color: green;"></i></big></button>
+							<!--button onclick="denunciarOf('<?= $this->id; ?>');"-->&nbsp;&nbsp;&nbsp;<big onclick="denunciarOf('<?= $this->id; ?>');"><i class="fa fa-medkit" style="color: green;"></i></big><!--/button-->
 						<?php endif; ?><br>
 						<p id="respLike<?= $this->id; ?>"></p>
-						<?php $usuNow = new Usuario($_COOKIE['id'], ''); $usuNow->load($conex); ?>
-						<?php if($usuNow->getNivel() == 'admin'): ?>
-							
-								<button class='btn col- col-md-6 col-lg-3' onclick="bloquearPost('<?= $this->id; ?>');"><strong class="alerta">Bloquear</strong></button>
-							
-								<button class='btn col- col-md-6 col-lg-3' onclick="liberarPost('<?= $this->id; ?>');"><strong class="alerta">Liberar</strong></button>
-							
-							<b id="respBlock"></b>
+						<?php if(isset($_COOKIE['id'])): ?>
+							<?php $usuNow = new Usuario($_COOKIE['id'], ''); $usuNow->load($conex); ?>
+							<?php if($usuNow->getNivel() == 'admin'): ?>
+								
+									<button class='btn col- col-md-6 col-lg-3' onclick="bloquearPost('<?= $this->id; ?>');"><strong class="alerta">Bloquear</strong></button>
+								
+									<button class='btn col- col-md-6 col-lg-3' onclick="liberarPost('<?= $this->id; ?>');"><strong class="alerta">Liberar</strong></button>
+								
+								<b id="respBlock"></b>
+							<?php endif; ?>
 						<?php endif; ?>
 					</section>
 				<?php

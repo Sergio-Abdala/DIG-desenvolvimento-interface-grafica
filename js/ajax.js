@@ -41,15 +41,27 @@ function carroussel(){
   }
   if (slide[1] == 'target-item-3') {
     window.location = '#target-item-1';
+    document.getElementById('radio-item-1').checked = true;
   }
   if (slide[1] == 'target-item-1') {
     window.location = '#target-item-2';
+    document.getElementById('radio-item-2').checked = true;
   }
   if (slide[1] == 'target-item-2') {
     window.location = '#target-item-3';
+    document.getElementById('radio-item-3').checked = true;
   }
   //window.location = '#target-item-3';
   setTimeout(carroussel, tempoCarrossel);
+}
+function radioUm(){
+  window.location = '#target-item-1';
+}
+function radioDois(){
+  window.location = '#target-item-2';
+}
+function radioTres(){
+  window.location = '#target-item-3';
 }
 function tempoInfinitoCarrossel(){
   tempoCarrossel = 3600000;

@@ -20,7 +20,7 @@
 						<label>apelido</label><input type="text" name="apelido" value="<?= $this->apelido; ?>"><br />
 						<label>login</label><input type="text" name="login" value="<?= $this->login; ?>"><br />
 						<label>senha</label><input type="password" name="senha" value="<?= $this->senha; ?>"><br />
-						<input type="submit" name="btnEditar" class="btn col-xs-12 col-md-4">
+						<input type="submit" name="btnEditar" class="btn col-xs-12 col-md-4" value="EDITAR...">
 					</form>
 				<?php
 			}

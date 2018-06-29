@@ -89,32 +89,37 @@
 			  <span id="target-item-2"></span>
 			  <span id="target-item-3"></span>
 			  
-			  <div class="carousel-item item-1" style="background: url('img/charqueadas1.jpg'); background-position: center;">			  
-			    <!--h2 class="titulo-carousel cor-txt">CharqueadasTEM...</h2>
-			    <p>conteudo do slide....</p-->			  
-			    <a class="arrow arrow-prev" href="#target-item-3"><img src="img/carousel-arrow-left.png" class="imgArrow"></a>
-			    <a class="arrow arrow-next" href="#target-item-2"><img src="img/carousel-arrow-right.png" class="imgArrow"></a>
-			  </div>
-			  
-			  <div class="carousel-item item-2 light" style="background: url('img/charqueadas2.jpg'); background-position: center;">
-			    <!--h2>Item 2</h2>
-			    <p>conteudo do slide....</p-->
-			    <a class="arrow arrow-prev" href="#target-item-1"><img src="img/carousel-arrow-left.png" class="imgArrow"></a>
-			    <a class="arrow arrow-next" href="#target-item-3"><img src="img/carousel-arrow-right.png" class="imgArrow"></a>
-			  </div>
+			  <div class="carousel-item item-1 row">
+			  	<div class="col-xs-1"></div>
+			  	<img src="img/charqueadas1.jpg" class="col-xs-10">
+			  	<div class="col-xs-1"></div>
+			  </div>			  
+				 
+			 <div class="carousel-item item-2 light row">
+			 	<div class="col-xs-1"></div>
+			    <img src="img/charqueadas2.jpg" class="col-xs-10">
+			    <div class="col-xs-1"></div>
+			 </div>				 
 
-			  <div class="carousel-item item-3" style="background: url('img/ifsulcharqueadas.jpg'); background-repeat: no-repeat; background-position: center;">
+			  <div class="carousel-item item-3 row">
+			  	<div class="col-xs-1"></div>
+			    <img src="img/ifsulcharqueadas.jpg" class="col-xs-10">
+			    <div class="col-xs-1"></div>
 			    <!--h2>Item 3</h2>
 			    <p>conteudo do slide....</p-->
-			    <a class="arrow arrow-prev" href="#target-item-2"><img src="img/carousel-arrow-left.png" class="imgArrow"></a>
-			    <a class="arrow arrow-next" href="#target-item-1"><img src="img/carousel-arrow-right.png" class="imgArrow"></a>
+			    <!--a class="arrow arrow-prev" href="#target-item-2"><img src="img/carousel-arrow-left.png" class="imgArrow"></a>
+			    <a class="arrow arrow-next" href="#target-item-1"><img src="img/carousel-arrow-right.png" class="imgArrow"></a-->
+			  </div>
+			  <div style="position: absolute; bottom: 0; width: 100%; z-index: 5; text-align: center;">
+			  	<input type="radio" name="carroussel" id="radio-item-1" onclick="radioUm();">
+			  	<input type="radio" name="carroussel" id="radio-item-2" onclick="radioDois();">
+			  	<input type="radio" name="carroussel" id="radio-item-3"><!-- addEventListener -->
 			  </div>
 		</aside>
-		<div class="corpo">			
+		<div class="corpo">				
 			<div class="col-xs-12 col-md-3 col-lg-3"><!-- MENU -->
 				<nav class="container-menu">
 					<ul>
-						<li class="btn"><b class="cor-txt">Exibir</b>&nbsp;&nbsp;&nbsp;&nbsp; <input type="number" name="totPostagens" id="totPost" style="max-width: 50px; border: none; background-color: #4f8a83;" value="4"><label for="totPost" class="cor-txt" onclick="refreshPost();"> postagens</label></li>
 						<li class="btn"><a href="#" class="cor-txt" onclick="reloadIndex();"><i class="fa fa-home"></i></a></li>
 						<?php 
 							$post = new Postagem(0);
@@ -124,8 +129,12 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="col-xs-12 col-md-9 col-lg-9 row" id="postagens"><!-- CONTEUDO -->
-				<img src='img/carregando-pacotes.gif'>
+			<div class="col-xs-12 col-md-9 col-lg-9 row">
+				<div class="col-xs-2"></div> <div class="col-xs-10 btn"  onclick="refreshPost();"><b class="cor-txt">Exibir</b>&nbsp;&nbsp;&nbsp;&nbsp; <input type="number" name="totPostagens" id="totPost" style="max-width: 50px; border: none; background-color: #4f8a83;" value="4"><label for="totPost" class="cor-txt"> postagens</label></div>
+				<div class="col- row" id="postagens"><!-- CONTEUDO -->
+					<img src='img/carregando-pacotes.gif'>
+				</div>
+				
 			</div>
 			<aside class="col- row">
 				<?php $post->fotosPe($conex); ?>
@@ -221,6 +230,7 @@
 				alert('Denuncia mantida...');
 			}
 		}
+		document.getElementById('radio-item-3').addEventListener('click', function(){ radioTres(); });
 		carroussel();
 	</script>	
 </body>
